@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mohammad Jaffar Sadhik · Test Automation Architect</title>
+<meta name="description" content="Test Automation Architect and SDET Lead with 8 years of experience building test frameworks, cloud test environments and CI/CD quality gates for supply chain SaaS.">
+<meta property="og:title" content="Mohammad Jaffar Sadhik · Test Automation Architect">
+<meta property="og:description" content="Playwright, TypeScript, Java, CI/CD and Azure. 8 years across Blue Yonder, Oracle and Wipro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://munna7862.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f6e57'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11.5' stroke='white' stroke-width='3.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: 1120px column. Hero splits into intro + a terminal "test run" panel; a stat strip follows;
+   experience is a railed timeline; projects lead with one wide featured card, then three equal cards. */
+:root {
+  --bg: #f6f7f5; --surface: #ffffff; --ink: #121a17; --muted: #4f5d57; --faint: #7b8883; --line: #dfe5e2;
+  --pass: #0d6b54; --pass-ink: #ffffff; --pass-soft: #e0f0ea; --wip: #9a5b06; --wip-soft: #fbefd9;
+  --term: #0f1714; --term-ink: #d7e4de; --term-dim: #7f948b; --term-pass: #4fd1a5;
+  --display: "Schibsted Grotesk", "Segoe UI", system-ui, sans-serif;
+  --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root {
+  --bg: #0c1210; --surface: #131b18; --ink: #e8efec; --muted: #aab8b2; --faint: #7c8c85; --line: #24302b;
+  --pass: #52d1a8; --pass-ink: #06140f; --pass-soft: #14302a; --wip: #efb25c; --wip-soft: #33270f;
+  --term: #070b0a; --term-ink: #d7e4de; --term-dim: #6f847b; --term-pass: #52d1a8;
+  color-scheme: dark; } }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.65 var(--body); -webkit-font-smoothing: antialiased; }
+a { color: var(--pass); text-underline-offset: 3px; }
+a:focus-visible, .btn:focus-visible { outline: 2px solid var(--pass); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(24px, env(safe-area-inset-left)); padding-right: max(24px, env(safe-area-inset-right)); }
+h1, h2, h3 { font-family: var(--display); margin: 0; line-height: 1.1; text-wrap: balance; }
+p { margin: 0; }
+.kicker { font: 600 0.78rem/1 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--pass); }
+
+/* nav */
+nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid var(--line); }
+nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+nav .brand { display: flex; align-items: center; gap: 10px; font: 700 1rem var(--display); color: var(--ink); text-decoration: none; }
+nav .mark { width: 28px; height: 28px; border-radius: 7px; background: var(--pass); display: grid; place-items: center; }
+nav .mark svg { width: 16px; height: 16px; }
+nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; font-size: 0.95rem; font-weight: 500; }
+nav ul a { color: var(--muted); text-decoration: none; }
+nav ul a:hover { color: var(--ink); }
+@media (max-width: 700px) { nav ul { display: none; } }
+
+/* hero */
+.hero { padding-block: 88px 64px; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 56px; align-items: center; }
+@media (max-width: 920px) { .hero { grid-template-columns: 1fr; gap: 40px; padding-block: 56px 48px; } }
+.intro { display: grid; gap: 22px; }
+.hero h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); font-weight: 800; letter-spacing: -0.03em; }
+.hero .role { font: 700 clamp(1.15rem, 2.4vw, 1.4rem) var(--display); color: var(--pass); }
+.hero .lede { font-size: 1.13rem; color: var(--muted); max-width: 54ch; }
+.hero .lede strong { color: var(--ink); font-weight: 600; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; padding-top: 4px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 9px; font-weight: 600; font-size: 1rem; text-decoration: none; border: 1px solid var(--line); color: var(--ink); background: var(--surface); transition: transform .15s ease, border-color .15s ease; }
+.btn:hover { transform: translateY(-1px); border-color: var(--faint); }
+.btn.primary { background: var(--pass); border-color: var(--pass); color: var(--pass-ink); }
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } .btn:hover { transform: none; } }
+
+/* terminal panel: the page's signature, a Playwright list-reporter run of the career */
+.term { background: var(--term); color: var(--term-ink); border-radius: 14px; box-shadow: 0 24px 60px -24px rgba(6, 30, 22, .45); overflow: hidden; font: 0.86rem/1.85 var(--mono); }
+.term .bar { display: flex; align-items: center; gap: 7px; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,.07); }
+.term .bar i { width: 11px; height: 11px; border-radius: 50%; background: #3a4a44; }
+.term .bar span { margin-left: 10px; color: var(--term-dim); font-size: 0.78rem; }
+.term .body { padding: 16px 20px 18px; overflow-x: auto; }
+.term .dim { color: var(--term-dim); }
+.term .row { display: grid; grid-template-columns: 18px minmax(0,1fr) auto; gap: 8px 12px; }
+.term .row .t { white-space: nowrap; }
+.term .ok { color: var(--term-pass); }
+.term .t { color: var(--term-dim); }
+.term .sum { margin-top: 10px; padding-top: 10px; border-top: 1px dashed rgba(255,255,255,.12); }
+.term .sum b { color: var(--term-pass); font-weight: 600; }
+.cursor { display: inline-block; width: 8px; height: 1.05em; vertical-align: -2px; background: var(--term-pass); animation: blink 1.1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
+
+/* stats strip */
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); border-block: 1px solid var(--line); }
+.stat { padding: 26px 24px; display: grid; gap: 4px; }
+.stat + .stat { border-left: 1px solid var(--line); }
+.stat .n { font: 800 clamp(1.9rem, 4vw, 2.6rem)/1 var(--display); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.stat .l { color: var(--muted); font-size: 0.95rem; }
+@media (max-width: 720px) { .stats { grid-template-columns: repeat(2, minmax(0,1fr)); } .stat:nth-child(3) { border-left: 0; } .stat:nth-child(n+3) { border-top: 1px solid var(--line); } }
+
+section { padding-block: 96px 24px; }
+.sec-head { display: grid; gap: 12px; margin-bottom: 40px; max-width: 62ch; }
+.sec-head h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.02em; }
+.sec-head p { color: var(--muted); }
+
+/* experience */
+.rail { position: relative; display: grid; gap: 22px; padding-left: 34px; }
+.rail::before { content: ""; position: absolute; left: 8px; top: 10px; bottom: 10px; width: 2px; background: var(--line); }
+.job { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 26px 28px; display: grid; gap: 12px; }
+.job::before { content: ""; position: absolute; left: -33px; top: 30px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 3px solid var(--pass); }
+.job.now::before { background: var(--pass); }
+.job .top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 16px; }
+.job h3 { font-size: 1.3rem; font-weight: 700; }
+.job .when { font: 500 0.85rem var(--mono); color: var(--faint); white-space: nowrap; }
+.job .co { color: var(--pass); font-weight: 600; }
+.job .co span { color: var(--muted); font-weight: 400; }
+.job ul { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; color: var(--muted); }
+.job ul b { color: var(--ink); font-weight: 600; }
+@media (max-width: 560px) { .rail { padding-left: 0; } .rail::before, .job::before { display: none; } .job { padding: 22px; } }
+
+/* projects */
+.feature { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 34px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 36px; margin-bottom: 18px; }
+@media (max-width: 860px) { .feature { grid-template-columns: 1fr; gap: 24px; padding: 26px; } }
+.feature .copy { display: grid; gap: 14px; align-content: start; }
+.feature h3 { font-size: 1.7rem; font-weight: 800; letter-spacing: -0.01em; }
+.feature .copy p { color: var(--muted); }
+.feature ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; align-content: start; }
+.feature li { display: grid; grid-template-columns: 22px minmax(0,1fr); gap: 10px; color: var(--muted); font-size: 0.98rem; }
+.feature li::before { content: "✓"; color: var(--pass); font: 600 0.95rem var(--mono); }
+.feature li b { color: var(--ink); font-weight: 600; }
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; }
+@media (max-width: 920px) { .grid3 { grid-template-columns: 1fr; } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 26px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.card h3 { font-size: 1.25rem; font-weight: 700; }
+.card p { color: var(--muted); font-size: 0.98rem; flex: 1; }
+.tag { align-self: flex-start; justify-self: start; font: 600 0.7rem/1 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 9px; border-radius: 999px; background: var(--pass-soft); color: var(--pass); }
+.tag.wip { background: var(--wip-soft); color: var(--wip); }
+.tech { font: 0.8rem/1.6 var(--mono); color: var(--faint); }
+.links { display: flex; flex-wrap: wrap; gap: 18px; font-weight: 600; font-size: 0.97rem; padding-top: 4px; }
+.links a { text-decoration: none; }
+.links a::after { content: " →"; }
+.links a:hover { text-decoration: underline; }
+.also { margin-top: 26px; padding: 18px 22px; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); font-size: 0.98rem; }
+.also b { color: var(--ink); font-weight: 600; }
+
+/* skills */
+.skills { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; }
+@media (max-width: 920px) { .skills { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 560px) { .skills { grid-template-columns: 1fr; } }
+.skill { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; display: grid; gap: 10px; align-content: start; }
+.skill h3 { font-size: 1.02rem; font-weight: 700; }
+.skill p { color: var(--muted); font-size: 0.97rem; line-height: 1.7; }
+
+/* background */
+.creds { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); border-block: 1px solid var(--line); }
+@media (max-width: 760px) { .creds { grid-template-columns: 1fr; } }
+.cred { padding: 24px 24px 24px 0; display: grid; gap: 4px; }
+.cred + .cred { padding-left: 24px; border-left: 1px solid var(--line); }
+@media (max-width: 760px) { .cred + .cred { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); } }
+.cred b { font: 700 1.05rem var(--display); }
+.cred span { color: var(--muted); font-size: 0.95rem; }
+
+/* contact band */
+.contact { margin-top: 96px; background: var(--term); color: var(--term-ink); }
+.contact .wrap { padding-block: 72px; display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 32px; align-items: center; }
+@media (max-width: 760px) { .contact .wrap { grid-template-columns: 1fr; } }
+.contact h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.02em; color: #f1f6f3; }
+.contact p { color: var(--term-dim); margin-top: 12px; max-width: 52ch; font-size: 1.05rem; }
+.contact .kicker { color: var(--term-pass); }
+.contact .btn { background: transparent; color: var(--term-ink); border-color: rgba(255,255,255,.18); }
+.contact .btn.primary { background: var(--term-pass); border-color: var(--term-pass); color: #06140f; }
+.foot { background: var(--term); color: var(--term-dim); font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,.07); }
+.foot .wrap { padding-block: 22px; }
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="mark"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>M. Jaffar Sadhik</a>
+    <ul>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+  <header class="wrap hero">
+    <div class="intro">
+      <div class="kicker">Hyderabad, India</div>
+      <h1>Mohammad Jaffar Sadhik</h1>
+      <p class="role">Test Automation Architect · SDET Lead</p>
+      <p class="lede">I build test automation that engineering teams can trust: <strong>frameworks, cloud test environments and CI/CD quality gates</strong> for supply chain SaaS. Over 8 years at Blue Yonder, Oracle and Wipro I moved from writing tests to designing the platforms they run on, and I fix the Java backend defects they find.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://www.linkedin.com/in/mohammad-jaffar-sadhik-a4aa89118/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        <a class="btn" href="https://github.com/munna7862" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <div class="term" role="img" aria-label="Career summary written as a passing Playwright test run">
+      <div class="bar"><i></i><i></i><i></i><span>~/career — zsh</span></div>
+      <div class="body">
+        <div class="dim">$ npx playwright test --project=career</div>
+        <div class="dim">Running 5 tests using 1 worker</div>
+        <div style="height:8px"></div>
+        <div class="row"><span class="ok">✓</span><span>cuts regression from 8h to 30m with 15 shards</span><span class="t">30m</span></div>
+        <div class="row"><span class="ok">✓</span><span>architects Playwright &amp; WebdriverIO frameworks</span><span class="t">8y</span></div>
+        <div class="row"><span class="ok">✓</span><span>provisions 8 Azure test environments</span><span class="t">1.4s</span></div>
+        <div class="row"><span class="ok">✓</span><span>load-tests with JMeter, k6, LoadRunner</span><span class="t">3.0s</span></div>
+        <div class="row"><span class="ok">✓</span><span>fixes Java backend defects at the source</span><span class="t">0.9s</span></div>
+        <div class="sum"><b>5 passed</b> <span class="dim">· 0 flaky · 3 companies</span></div>
+        <div class="dim" style="margin-top:6px">$ <span class="cursor"></span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><span class="n">8+ yrs</span><span class="l">in test automation</span></div>
+      <div class="stat"><span class="n">8h → 30m</span><span class="l">full regression runtime</span></div>
+      <div class="stat"><span class="n">15</span><span class="l">parallel CI shards</span></div>
+      <div class="stat"><span class="n">8</span><span class="l">Azure environments provisioned</span></div>
+    </div>
+  </div>
+
+  <section id="experience" class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Experience</div>
+      <h2>Three companies, one thread: supply chain software</h2>
+    </div>
+    <div class="rail">
+      <article class="job now">
+        <div class="top"><h3>Senior QA Engineer · Automation Lead</h3><span class="when">Mar 2024 – Present</span></div>
+        <div class="co">Blue Yonder <span>· Cognitive supply chain platform</span></div>
+        <ul>
+          <li><b>Architected the Playwright framework</b>: layered page objects across 20+ pages, fixture-based dependency injection, worker-scoped caching and per-environment OIDC/OAuth auth state.</li>
+          <li><b>Cut full regression from 8 hours to 30 minutes</b> by sharding it across 15 parallel workers in a GitHub Actions matrix, plus dedicated UI, API and JMeter pipelines.</li>
+          <li><b>Provisioned 8 Azure environments</b> for 4 services, with separate deployment pipelines for non-production and customer-facing instances and built-in security scans.</li>
+          <li><b>Migrated WebdriverIO suites to Playwright</b> with custom GitHub Copilot agents, and fixed critical defects and performance bottlenecks in Java backend services.</li>
+        </ul>
+      </article>
+      <article class="job">
+        <div class="top"><h3>Senior QA Engineer</h3><span class="when">Jul 2021 – Mar 2024</span></div>
+        <div class="co">Oracle <span>· Oracle Transportation Management · promoted Sep 2023</span></div>
+        <ul>
+          <li><b>Built the UI and API automation framework</b> (Selenium, TypeScript, Mocha, Chai) for supply chain logistics modules.</li>
+          <li><b>Integrated suites into Jenkins/Hudson CI</b> across Linux and Windows VMs for multi-version release cycles.</li>
+          <li><b>Led regression and root cause analysis</b> on incoming defects, and served as the team's Scrum Master.</li>
+        </ul>
+      </article>
+      <article class="job">
+        <div class="top"><h3>Project Engineer · Test Automation &amp; Performance</h3><span class="when">Nov 2018 – Jun 2021</span></div>
+        <div class="co">Wipro <span>· FedEx Supply Chain and Linehaul</span></div>
+        <ul>
+          <li><b>Built UI automation</b> with Selenium Java (TestNG) and REST API suites in ReadyAPI.</li>
+          <li><b>Designed load and destructive tests</b> in LoadRunner, tracking CPU, memory and throughput in AppDynamics.</li>
+          <li><b>Wired test runs into Jenkins</b> for continuous delivery.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="projects" class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Open source</div>
+      <h2>Things I've built</h2>
+      <p>Where I try ideas I can't at work: a full test lab, my own test-quality tools and a SaaS product.</p>
+    </div>
+
+    <article class="feature">
+      <div class="copy">
+        <span class="tag">Flagship · active</span>
+        <h3>automation-frameworks</h3>
+        <p>A multi-framework test monorepo in which Playwright, Selenium, WebdriverIO, k6 and JMeter all test the same application, so each stack can be compared on equal terms.</p>
+        <div class="tech">Playwright · TypeScript · k6 · JMeter · GitHub Actions · Docker · Allure</div>
+        <div class="links"><a href="https://github.com/munna7862/automation-frameworks" target="_blank" rel="noopener">View code</a><a href="https://munna7862.github.io/automation-frameworks/" target="_blank" rel="noopener">Live test report</a></div>
+      </div>
+      <ul>
+        <li><span><b>Hermetic Docker environments</b> for every pull request, no shared staging</span></li>
+        <li><span><b>PR quality gate</b> with lint, type checks and catalog sync checks</span></li>
+        <li><span><b>Security scanning</b> with OWASP ZAP, CodeQL and secret detection</span></li>
+        <li><span><b>Performance suites</b> in k6 and JMeter with SLA thresholds</span></li>
+      </ul>
+    </article>
+
+    <div class="grid3">
+      <article class="card">
+        <span class="tag">Live</span>
+        <h3>BuggyBooks</h3>
+        <p>A deliberately imperfect bookstore app for practising test automation: random checkout failures, chaos endpoints, awkward selectors, cookie-based auth and an Expo mobile app.</p>
+        <div class="tech">React · Node / Express · Expo</div>
+        <div class="links"><a href="https://github.com/munna7862/buggy-books" target="_blank" rel="noopener">Code</a><a href="https://buggy-books-fe.onrender.com" target="_blank" rel="noopener">Live demo</a></div>
+      </article>
+      <article class="card">
+        <span class="tag wip">In progress</span>
+        <h3>proofline</h3>
+        <p>Coverage tells you what your tests ran; proofline tells you what they would catch. It maps UI coverage per page and breaks each API your tests rely on to find tests that stay green while the app is broken.</p>
+        <div class="tech">Playwright · TypeScript</div>
+        <div class="links"><a href="https://github.com/munna7862/proofline" target="_blank" rel="noopener">Code</a></div>
+      </article>
+      <article class="card">
+        <span class="tag wip">In progress</span>
+        <h3>TestPulse</h3>
+        <p>A multi-tenant SaaS for live test-run monitoring, team flaky-test triage and automated quarantine rules, with its own reporter for Playwright and Vitest.</p>
+        <div class="tech">Next.js · Fastify · Prisma · Socket.IO</div>
+        <div class="links"><a href="https://github.com/munna7862/TestPulse" target="_blank" rel="noopener">Code</a></div>
+      </article>
+    </div>
+
+    <p class="also">Also shipped, for fun: <b><a href="https://github.com/munna7862/ChessGame" target="_blank" rel="noopener">ChessForge</a></b>, an offline desktop chess app (Tauri, React, Stockfish), and <b><a href="https://github.com/munna7862/Power" target="_blank" rel="noopener">Apex Sovereign</a></b>, an India presidential strategy sim (Electron, React). Both at v1.0.</p>
+  </section>
+
+  <section id="skills" class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Toolbox</div>
+      <h2>What I work with</h2>
+    </div>
+    <div class="skills">
+      <div class="skill"><h3>Languages &amp; automation</h3><p>TypeScript, Java, JavaScript · Playwright, WebdriverIO, Selenium · TestNG, Mocha, Chai · Allure</p></div>
+      <div class="skill"><h3>API &amp; performance</h3><p>REST APIs, Postman, ReadyAPI · JMeter, k6, LoadRunner</p></div>
+      <div class="skill"><h3>Cloud, DevOps &amp; CI/CD</h3><p>Microsoft Azure · Docker · GitHub Actions, Jenkins, Azure DevOps</p></div>
+      <div class="skill"><h3>Observability</h3><p>Kibana, AppDynamics, APM tooling</p></div>
+      <div class="skill"><h3>Framework design</h3><p>Layered page objects, fixture-based DI, auth-state management, shift-left testing</p></div>
+      <div class="skill"><h3>AI engineering</h3><p>GitHub Copilot custom agents, prompt templates, Google Antigravity</p></div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Background</div>
+      <h2>Education &amp; certifications</h2>
+    </div>
+    <div class="creds">
+      <div class="cred"><b>B.Tech, Electronics &amp; Communication</b><span>Lovely Professional University · 2014–2018</span></div>
+      <div class="cred"><b>Professional Scrum Master I &amp; II</b><span>Scrum.org</span></div>
+      <div class="cred"><b>HackerRank Java</b><span>Basic &amp; Intermediate</span></div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="contact">
+    <div class="wrap">
+      <div>
+        <div class="kicker">Contact</div>
+        <h2 style="margin-top:12px">Let's talk about test architecture</h2>
+        <p>Happy to talk about test architecture, quality platforms and automation at scale. LinkedIn is the quickest way to reach me.</p>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="https://www.linkedin.com/in/mohammad-jaffar-sadhik-a4aa89118/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/munna7862" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div class="wrap">© 2026 Mohammad Jaffar Sadhik</div></div>
+</footer>
+
+</body>
+</html>
